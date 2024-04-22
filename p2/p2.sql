@@ -18,7 +18,7 @@ ADD CONSTRAINT fk_country_id FOREIGN KEY (country_id) REFERENCES countries(id);
 
 UPDATE infectious_cases_normalized i
 SET country_id = c.id FROM countries c
-WHERE c.code = i."Code";
+WHERE c.code = i."Code" AND c.country = i."Entity";
 
 ALTER TABLE infectious_cases_normalized
 DROP COLUMN "Entity",
